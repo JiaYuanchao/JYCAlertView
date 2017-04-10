@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'JYCAlertView_Example' do
+  pod 'JYCAlertView', :path => '../'
+
+  target 'JYCAlertView_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
