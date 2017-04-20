@@ -1,0 +1,6 @@
+framework module JYCAlertView {
+  umbrella header "JYCAlertView-umbrella.h"
+
+  export *
+  module * { export * }
+}

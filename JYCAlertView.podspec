@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'JYCAlertView'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of JYCAlertView.'
+  s.summary          = 'JYCAlertView'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,14 +18,14 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+JYCAlertView: one alertView, you only need to creat the alertView, don't pay close attention to how show the black maskView'.
                        DESC
 
-  s.homepage         = 'https://github.com/jiayuanchao/JYCAlertView'
+  s.homepage         = 'https://github.com/yuanchao2014/JYCAlertView'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'jiayuanchao' => '9drug_jiayuanchao@9drug.com' }
-  s.source           = { :git => 'https://github.com/jiayuanchao/JYCAlertView.git', :tag => s.version.to_s }
+  s.author           = { 'jiayuanchao' => 'yuanchao2102@163.com' }
+  s.source           = { :git => 'https://github.com/yuanchao2014/JYCAlertView.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'

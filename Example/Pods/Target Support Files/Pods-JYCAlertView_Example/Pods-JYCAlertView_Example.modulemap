@@ -1,0 +1,6 @@
+framework module Pods_JYCAlertView_Example {
+  umbrella header "Pods-JYCAlertView_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,16 @@
+PODS:
+  - JYCAlertView (0.1.0)
+
+DEPENDENCIES:
+  - JYCAlertView (from `../`)
+
+EXTERNAL SOURCES:
+  JYCAlertView:
+    :path: ../
+
+SPEC CHECKSUMS:
+  JYCAlertView: 084b78a04aec1e73de4e7cf9e50520ae49e819c6
+
+PODFILE CHECKSUM: 09e239e7a967663f796b308ea3e468bec8e214ac
+
+COCOAPODS: 1.1.1
