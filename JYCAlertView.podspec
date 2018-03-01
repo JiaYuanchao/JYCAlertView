@@ -21,11 +21,11 @@ Pod::Spec.new do |s|
 JYCAlertView: one alertView, you only need to creat the alertView, don't pay close attention to how show the black maskView'.
                        DESC
 
-  s.homepage         = 'https://github.com/yuanchao2014/JYCAlertView'
+  s.homepage         = 'https://github.com/JiaYuanchao/JYCAlertView'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'jiayuanchao' => 'yuanchao2102@163.com' }
-  s.source           = { :git => 'https://github.com/yuanchao2014/JYCAlertView.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/JiaYuanchao/JYCAlertView.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
