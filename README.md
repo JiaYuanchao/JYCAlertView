@@ -22,7 +22,7 @@ pod "JYCAlertView"
 
 ## Author
 
-jiayuanchao, 9drug_jiayuanchao@9drug.com
+Jia Yuanchao, yuanchao__2106@163.com
 
 ## License
 
