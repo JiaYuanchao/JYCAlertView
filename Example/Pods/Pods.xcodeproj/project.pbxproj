@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		056A7D724BE30089CF38E1F1507F0618 /* Pods-JYCAlertView_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D3ABC5BCE77EA9693DA0012092226CD /* Pods-JYCAlertView_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		296F0E1E1EA888D30096F0B7 /* JYCAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = 296F0E1C1EA888D30096F0B7 /* JYCAlertView.h */; };
-		296F0E1F1EA888D30096F0B7 /* JYCAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 296F0E1D1EA888D30096F0B7 /* JYCAlertView.m */; };
+		2913528A20482B2B00FD455E /* JYCAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2913528820482B2B00FD455E /* JYCAlertView.m */; };
+		2913528B20482B2B00FD455E /* JYCAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2913528920482B2B00FD455E /* JYCAlertView.h */; };
 		33E7E5956D157500B1AC4B5AEA8CD8D5 /* Pods-JYCAlertView_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 966FD562841FB893D899440F94C8715A /* Pods-JYCAlertView_Tests-dummy.m */; };
 		43E86AFA28EAE5382C43E383B0BC438B /* JYCAlertView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A69E59827DE7C5C4A21D0A2FBD148CD /* JYCAlertView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		59BCECA0FCC615079A8FCD0172EA2813 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
@@ -37,8 +37,8 @@
 		1287DD4C003E29B9D6EA08CB36732BDE /* Pods-JYCAlertView_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-JYCAlertView_Example.modulemap"; sourceTree = "<group>"; };
 		1EE993F1109159E8B4F0C18BE410FF7F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		231954E48A3FA7C0CD07E55FCB304F62 /* Pods-JYCAlertView_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JYCAlertView_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		296F0E1C1EA888D30096F0B7 /* JYCAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYCAlertView.h; sourceTree = "<group>"; };
-		296F0E1D1EA888D30096F0B7 /* JYCAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYCAlertView.m; sourceTree = "<group>"; };
+		2913528820482B2B00FD455E /* JYCAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYCAlertView.m; sourceTree = "<group>"; };
+		2913528920482B2B00FD455E /* JYCAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYCAlertView.h; sourceTree = "<group>"; };
 		2D3ABC5BCE77EA9693DA0012092226CD /* Pods-JYCAlertView_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-JYCAlertView_Tests-umbrella.h"; sourceTree = "<group>"; };
 		331F87F9C5E8BD4C823B1130517E9026 /* Pods-JYCAlertView_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-JYCAlertView_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		35A06C8F8D9C382B5258FD42E150BBF9 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -219,8 +219,8 @@
 		E50274D9CBA4AEDF8EF06AA55D43021B /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				296F0E1C1EA888D30096F0B7 /* JYCAlertView.h */,
-				296F0E1D1EA888D30096F0B7 /* JYCAlertView.m */,
+				2913528920482B2B00FD455E /* JYCAlertView.h */,
+				2913528820482B2B00FD455E /* JYCAlertView.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -241,7 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43E86AFA28EAE5382C43E383B0BC438B /* JYCAlertView-umbrella.h in Headers */,
-				296F0E1E1EA888D30096F0B7 /* JYCAlertView.h in Headers */,
+				2913528B20482B2B00FD455E /* JYCAlertView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,7 +341,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				296F0E1F1EA888D30096F0B7 /* JYCAlertView.m in Sources */,
+				2913528A20482B2B00FD455E /* JYCAlertView.m in Sources */,
 				DD450217FABA69301098206750CCAF2E /* JYCAlertView-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

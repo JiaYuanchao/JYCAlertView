@@ -12,11 +12,13 @@
 
 @interface JYCAlertView ()
 {
-    UIView *maskView;
     UIView *backGroundView;
     CGRect begainRect;
     CGRect targetRect;
 }
+
+@property (nonatomic, strong) UIView *maskView;
+
 @end
 
 @implementation JYCAlertView
@@ -27,6 +29,8 @@
     if (self) {
         self.isShowMask = YES;
         self.isAnimation = YES;
+        self.isBlur = NO;
+        self.backgroundColor = [UIColor clearColor];
         [self addAllViews];
     }
     return self;
@@ -34,15 +38,7 @@
 
 - (void)addAllViews
 {
-    self.backgroundColor = [UIColor clearColor];
-    
-    maskView = [[UIView alloc] initWithFrame:self.bounds];
-    maskView.alpha = 0.0f;
-    maskView.backgroundColor = [UIColor blackColor];
-    UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(maskViewDidClick)];
-    [maskView addGestureRecognizer:tapGR];
-    [self addSubview:maskView];
-    
+    [self addSubview:self.maskView];
 }
 
 - (void)showJYCAlertView
@@ -50,6 +46,9 @@
     switch (self.animationType) {
         case JYCAlertViewAnimationTypeFadeInAndFadeOut:
             [self viewFadeIn];
+            break;
+        case JYCAlertViewAnimationTypeScale:
+            [self viewScaleIn];
             break;
         case JYCAlertViewAnimationTypeTop:
         case JYCAlertViewAnimationTypeLeft:
@@ -74,6 +73,9 @@
         case JYCAlertViewAnimationTypeRight:
             [self slipOutWithComplete:completion];
             break;
+        case JYCAlertViewAnimationTypeScale:
+            [self viewScaleOutWithComplete:completion];
+            break;
         default:
             break;
     }
@@ -97,19 +99,19 @@
         [self addSubview:backGroundView];
     }
     [UIView animateWithDuration:self.showAnimationDuration animations:^{
-        maskView.alpha = self.maskAlpha;
-        backGroundView.alpha = 1.f;
+        self.maskView.alpha = self.maskAlpha;
+        backGroundView.alpha = self.contentViewAlpha;
     }];
 }
 
 - (void)viewFadeOutWithComplete:(void (^)(BOOL))complete
 {
     [UIView animateWithDuration:self.showAnimationDuration animations:^{
-        maskView.alpha = 0.0f;
+        self.maskView.alpha = 0.0f;
         backGroundView.alpha = 0.0f;
     } completion:^(BOOL finished) {
         [self removeFromSuperview];
-        maskView = nil;
+        self.maskView = nil;
         backGroundView = nil;
         if (complete) {
             complete(finished);
@@ -143,13 +145,13 @@
         default:
             break;
     }
-    backGroundView.alpha = 1.0f;
+    backGroundView.alpha = self.contentViewAlpha;
     backGroundView.frame = begainRect;
     if (!backGroundView.superview) {
         [self addSubview:backGroundView];
     }
     [UIView animateWithDuration:self.showAnimationDuration animations:^{
-        maskView.alpha = self.maskAlpha;
+        self.maskView.alpha = self.maskAlpha;
         backGroundView.frame = targetRect;
     }];
 }
@@ -160,11 +162,11 @@
         return;
     }
     [UIView animateWithDuration:self.showAnimationDuration animations:^{
-        maskView.alpha = 0.0f;
+        self.maskView.alpha = 0.0f;
         backGroundView.frame = begainRect;
     } completion:^(BOOL finished) {
         [self removeFromSuperview];
-        maskView = nil;
+        self.maskView = nil;
         backGroundView = nil;
         if (complete) {
             complete(finished);
@@ -172,8 +174,63 @@
     }];
 }
 
+#pragma mark -- 缩放动画
+- (void)viewScaleIn
+{
+    backGroundView.alpha = 0.5f;
+    backGroundView.transform = CGAffineTransformMakeScale(0.5, 0.5);
+    if (!backGroundView.superview) {
+        [self addSubview:backGroundView];
+    }
+    [UIView animateWithDuration:self.showAnimationDuration animations:^{
+        self.maskView.alpha = self.maskAlpha;
+        backGroundView.transform = CGAffineTransformMakeScale(1, 1);
+        backGroundView.alpha = self.contentViewAlpha;
+    }];
+}
+
+- (void)viewScaleOutWithComplete:(void (^)(BOOL))complete
+{
+    [UIView animateWithDuration:self.showAnimationDuration animations:^{
+        self.maskView.alpha = 0.0f;
+        backGroundView.alpha = 0.0f;
+        backGroundView.transform = CGAffineTransformMakeScale(0.5, 0.5);
+    } completion:^(BOOL finished) {
+        [self removeFromSuperview];
+        self.maskView = nil;
+        backGroundView = nil;
+        if (complete) {
+            complete(finished);
+        }
+    }];
+}
+
+#pragma mark -重新加载数据
+/**
+ 重新加载数据
+ */
+- (void)reloadData
+{
+    [backGroundView removeFromSuperview];
+    backGroundView = nil;
+    self.datasource = _datasource;
+}
 
 #pragma mark --重写set和get
+
+- (void)setIsBlur:(BOOL)isBlur
+{
+    _isBlur = isBlur;
+    if (isBlur && _maskView && _maskView.subviews.count < 1) {
+        UIBlurEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+        UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:effect];
+        effectView.frame = self.maskView.bounds;
+        [self.maskView addSubview:effectView];
+    } else if (_maskView.subviews.count > 0){
+        [self.maskView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    }
+}
+
 - (CGFloat)showAnimationDuration
 {
     if (!self.isAnimation) {
@@ -196,11 +253,19 @@
     return _maskAlpha;
 }
 
+- (CGFloat)contentViewAlpha
+{
+    if (_contentViewAlpha <= 0 || _contentViewAlpha > 1) {
+        _contentViewAlpha = 1;
+    }
+    return _contentViewAlpha;
+}
+
 - (void)setBGColor:(UIColor *)BGColor
 {
     _BGColor = BGColor;
-    if (![maskView.backgroundColor isEqual:BGColor]) {
-        maskView.backgroundColor = BGColor;
+    if (![self.maskView.backgroundColor isEqual:BGColor]) {
+        self.maskView.backgroundColor = BGColor;
     }
 }
 
@@ -220,6 +285,21 @@
         }
     }
 }
+
+#pragma mark--lazy
+
+- (UIView *)maskView
+{
+    if (!_maskView) {
+        _maskView = [[UIView alloc] initWithFrame:self.bounds];
+        _maskView.alpha = 0.0f;
+        _maskView.backgroundColor = [UIColor blackColor];
+        UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(maskViewDidClick)];
+        [_maskView addGestureRecognizer:tapGR];
+    }
+    return _maskView;
+}
+
 
 /*
  // Only override drawRect: if you perform custom drawing.

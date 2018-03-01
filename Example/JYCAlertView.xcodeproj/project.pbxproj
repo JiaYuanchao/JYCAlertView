@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		022BE29DAF19D267277A668D /* Pods_JYCAlertView_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F9C81D0BF18CA359822A8A /* Pods_JYCAlertView_Example.framework */; };
-		296F0E221EA889000096F0B7 /* JYCAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 296F0E211EA889000096F0B7 /* JYCAlertView.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -39,8 +38,6 @@
 
 /* Begin PBXFileReference section */
 		0A896C06E9B0DC33D0711402 /* JYCAlertView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = JYCAlertView.podspec; path = ../JYCAlertView.podspec; sourceTree = "<group>"; };
-		296F0E201EA889000096F0B7 /* JYCAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JYCAlertView.h; path = ../../../JYCAlertView/Classes/JYCAlertView.h; sourceTree = "<group>"; };
-		296F0E211EA889000096F0B7 /* JYCAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JYCAlertView.m; path = ../../../JYCAlertView/Classes/JYCAlertView.m; sourceTree = "<group>"; };
 		40D80A4792D60D8A5C85F73B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		58E899F63E1D373479807850 /* Pods-JYCAlertView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JYCAlertView_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JYCAlertView_Example/Pods-JYCAlertView_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* JYCAlertView_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JYCAlertView_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,15 +95,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2988C9AB1E9B689400D5A68C /* Class */ = {
-			isa = PBXGroup;
-			children = (
-				296F0E201EA889000096F0B7 /* JYCAlertView.h */,
-				296F0E211EA889000096F0B7 /* JYCAlertView.m */,
-			);
-			path = Class;
-			sourceTree = "<group>";
-		};
 		42721FEFBC59C6A44FA14F31 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,7 +143,6 @@
 		6003F593195388D20070C39A /* Example for JYCAlertView */ = {
 			isa = PBXGroup;
 			children = (
-				2988C9AB1E9B689400D5A68C /* Class */,
 				6003F59C195388D20070C39A /* JYCAppDelegate.h */,
 				6003F59D195388D20070C39A /* JYCAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
@@ -412,7 +399,6 @@
 			files = (
 				6003F59E195388D20070C39A /* JYCAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* JYCViewController.m in Sources */,
-				296F0E221EA889000096F0B7 /* JYCAlertView.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -16,6 +16,7 @@ typedef NS_ENUM(NSInteger, JYCAlertViewAnimationType) {
     JYCAlertViewAnimationTypeLeft, // 左部划出
     JYCAlertViewAnimationTypeRight, // 右部划出
     
+    JYCAlertViewAnimationTypeScale, // 缩放
 };
 
 @class JYCAlertView;
@@ -33,6 +34,11 @@ typedef NS_ENUM(NSInteger, JYCAlertViewAnimationType) {
 @end
 
 @interface JYCAlertView : UIView
+
+/**
+ 是否使用模糊背景  默认不使用
+ */
+@property (nonatomic, assign) BOOL isBlur;
 
 /**
  是否使用动画 默认使用
@@ -59,6 +65,11 @@ typedef NS_ENUM(NSInteger, JYCAlertViewAnimationType) {
 @property (nonatomic, assign) CGFloat maskAlpha;
 
 /**
+ 弹框的透明度  默认是1
+ */
+@property (nonatomic, assign) CGFloat contentViewAlpha;
+
+/**
  弹框动画效果
  */
 @property (nonatomic, assign) JYCAlertViewAnimationType animationType;
@@ -75,6 +86,11 @@ typedef NS_ENUM(NSInteger, JYCAlertViewAnimationType) {
  */
 @property (nonatomic, weak) id<JYCAlertViewDelegate> delegate;
 
+
+/**
+ 重新加载数据
+ */
+- (void)reloadData;
 
 /**
  展示弹框
